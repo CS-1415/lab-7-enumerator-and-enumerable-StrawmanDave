@@ -1,60 +1,27 @@
 ﻿namespace Lab07;
-public interface IDoubleEndedCollection<T>
+
+using System.Collections;
+using System.Collections.Generic;
+
+public class DoublyLinkedList<T> : IDoubleEndedCollection<T>, IEnumerable<T>
 {
-    public T First { get; }
-    public T Last { get; }
-    int Length { get; }
-
-    void AddLast(T value);  
-    void AddFirst(T value);
-    void RemoveFirst();     
-    void RemoveLast();                
-    void InsertAfter(DNode<T> dNode, T value);
-    void RemoveByValue(T value);
-    void ReverseList();
-}
-
-public class DNode<T>
-{
-    public T Value {get; set;}
-    public DNode<T>? Previous {get; set;}
-    public DNode<T>? Next {get; set;}
-
-    public DNode()
-    {
-
-    }
-
-    public DNode(T value)
-    {
-        Value = value;
-    }
-
-    public bool Equals(DNode<T> node)
-    {
-        
-        if(Value.GetHashCode() == node.GetHashCode())
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    public override int GetHashCode()
-    {
-        return Value.GetHashCode();
-    }
-}
-
-public class DoublyLinkedList<T> : IDoubleEndedCollection<T>
-{
-    private DNode<T>? _head = null;
-    private DNode<T>? _tail = null;
+    private DNode<T>? _head = default;
+    private DNode<T>? _tail = default;
     T IDoubleEndedCollection<T>.First => _head.Value;
     T IDoubleEndedCollection<T>.Last => _tail.Value;
     public int Length {get; private set;} = 0;
-    
+
+    IEnumerator<T> IEnumerable<T>.GetEnumerator()
+    {
+        return new LinkedListEnumerator<T>(this._head);
+    }
+
+    public IEnumerator GetEnumerator()
+    {
+        return new LinkedListEnumerator<T>(this._head);
+    }
+
+
     public void printList()
     {
         DNode<T> Curr = _head;
@@ -64,6 +31,7 @@ public class DoublyLinkedList<T> : IDoubleEndedCollection<T>
             Curr = Curr.Next;
         }
     }
+
     public void AddLast(T value)
     {
         //used to add a node with the given value at the end of the list
@@ -72,9 +40,9 @@ public class DoublyLinkedList<T> : IDoubleEndedCollection<T>
 
         if(_tail == null)//checking if tail is null checks if the list is empty or has one because we set the head to the new node. 
         {
-            _head = newNode; 
+            _head = newNode;
         }else //if the list has one or more
-        {
+        {//connect the final nodes
             newNode.Previous = _tail;
             _tail.Next = newNode;
         }
@@ -96,7 +64,6 @@ public class DoublyLinkedList<T> : IDoubleEndedCollection<T>
         {
             _head.Previous = newNode;
         }
- 
         _head = newNode;
         Length ++;
     }
@@ -104,7 +71,7 @@ public class DoublyLinkedList<T> : IDoubleEndedCollection<T>
     public void RemoveFirst()
     {
         if(_head != null)
-        {
+        { 
             _head = _head.Next;
 
             if(_head == null)
@@ -115,16 +82,20 @@ public class DoublyLinkedList<T> : IDoubleEndedCollection<T>
         }
     }
 
-    public void RemoveLast()
+    public void RemoveLast() 
     {
-        if(_tail != null)
+        if(_tail == null){}; //do nothing because the list is empty 
+        if(_tail.Previous == null) // if there is one element in the list set both the head and the tail to null
+        {
+            _head = null;
+            _tail = null;
+            Length --;
+        }
+
+        if(_tail.Previous != null) // if there is one or more element in the list
         {
             _tail = _tail.Previous;
-
-            if(_tail == null)
-            {
-                _head = null;
-            }
+            _tail.Next = null;
             Length --;
         }
     }
@@ -157,7 +128,6 @@ public class DoublyLinkedList<T> : IDoubleEndedCollection<T>
                     currTemp = currTemp.Next;
                 }
             }
-            //ReverseList();
         }else
         {
             Console.WriteLine("The list does not contain that node");
@@ -170,33 +140,39 @@ public class DoublyLinkedList<T> : IDoubleEndedCollection<T>
         //should remove the first node found with that value.
         //should set missing pointers to what they need to be.
         //new temp list to hold all the values that are not the one given
-        DoublyLinkedList<T> temp = new DoublyLinkedList<T>();
         if(ContainsValue(value) == true)
         {
             DNode<T> Curr = _head;
             DNode<T> GivenNode = new DNode<T>(value);
 
             //iterarte through the current list and add each node to the temp list unless it is the GivenNode
-            while(Curr != null)
+            if(GivenNode.Equals(_head))
             {
-                if(Curr.Equals(GivenNode))
+                RemoveFirst();
+            }else if(GivenNode.Equals(_tail))
+            {
+                RemoveLast();
+            }else
+            {
+                while(Curr != null)
                 {
-                    //skip that node
+                    if(Curr.Equals(GivenNode))
+                    {
+                        //skip that node
+                        RemoveLast();
+                        Curr = Curr.Next;
+                    }
+                    AddFirst(Curr.Value);
                     RemoveLast();
                     Curr = Curr.Next;
                 }
-                AddFirst(Curr.Value);
-                RemoveLast();
-                Curr = Curr.Next;
+                ReverseList();
             }
-            ReverseList();
             
         }else
         {
             Console.WriteLine("That value was not found in the list");
         }
-
-        
     }
 
     public bool ContainsValue(T value)

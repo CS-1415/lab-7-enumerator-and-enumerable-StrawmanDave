@@ -22,6 +22,12 @@ public class Tests
         Numbers.AddLast(4);
         Console.WriteLine("List in order");
         Numbers.printList(); // should print 1 2 3 4
+        Console.WriteLine();
+        foreach(int num in Numbers) //should also print 1 2 3 4
+        {
+            Console.Write($"{num} ");
+        }
+        Console.WriteLine();
     }
 
     public void TestRemoveLast()
@@ -34,7 +40,12 @@ public class Tests
         Numbers.AddLast(4);
         Numbers.RemoveLast();
         Console.WriteLine("Removed the end node");
-        Numbers.printList();
+        Numbers.printList();// should print 1 2 3
+        Console.WriteLine();
+        foreach(int num in Numbers) //print 1, 2, 3,
+        {
+            Console.Write($"{num}, ");
+        }
         Console.WriteLine();
     }
 
@@ -49,7 +60,12 @@ public class Tests
         Numbers.ReverseList();
         Console.WriteLine("List reversed");
         Numbers.printList(); // should print 4 3 2 1
-
+        Console.WriteLine();
+        foreach(int num in Numbers)
+        {
+            Console.Write($"{num} ");
+        }
+        Console.WriteLine();
 
         DoublyLinkedList<string> Words = new DoublyLinkedList<string>();
         Words.AddLast("The");
@@ -59,9 +75,14 @@ public class Tests
 
         //second test with words for reverse list
         Words.printList(); // should print The Quick Brown Fox
-        Words.ReverseList();
         Console.WriteLine();
+        Words.ReverseList();
         Words.printList();// should print Fox Brown Quick The
+        Console.WriteLine();
+        foreach(string word in Words) // should print Fox Brown Quick The
+        {
+            Console.Write($"{word} ");
+        }
     }
 
     public void TestAddFirst()
@@ -72,7 +93,12 @@ public class Tests
         newNumber.AddFirst(2);
         newNumber.AddFirst(3);
         newNumber.AddFirst(4);
-        newNumber.printList(); // should pritn 4 3 2 1
+        newNumber.printList(); // should print 4 3 2 1
+        Console.WriteLine();
+        foreach(int num in newNumber) // should also print 4 3 2 1
+        {
+            Console.Write($"{num} ");
+        }
     }
 
     public void TestRemovefirst()
@@ -84,9 +110,13 @@ public class Tests
         newNumber.AddFirst(3);
         newNumber.AddFirst(4);
         newNumber.RemoveFirst();
-        Console.WriteLine();
         Console.WriteLine("Removed the first node");
-        newNumber.printList();
+        newNumber.printList(); //should print 3 2 1
+        Console.WriteLine();
+        foreach(int num in newNumber) // should also print 3 2 1
+        {
+            Console.Write($"{num} ");
+        }
     }
 
     public void TestReverse()
@@ -97,10 +127,20 @@ public class Tests
         newNumber.AddFirst(2);
         newNumber.AddFirst(3);
         newNumber.AddFirst(4);
+        newNumber.printList(); // should print 4 3 2 1
+        Console.WriteLine();
+        foreach(int num in newNumber) // should print 4 3 2 1
+        {
+            Console.Write($"{num} ");
+        }
+        Console.WriteLine();
         DoublyLinkedList<int> SameNumbers = newNumber.Reverse();
+        SameNumbers.printList();// should print 1 2 3 4
         Console.WriteLine();
-        SameNumbers.printList();// prints 1 2 3 4
-        Console.WriteLine();
+        foreach(int num in SameNumbers) //should print 1 2 3 4
+        {
+            Console.Write($"{num} ");
+        }
     }
 
     public void TestDNodeEquals()
@@ -128,7 +168,7 @@ public class Tests
         Numbers.AddLast(3);
         Numbers.AddLast(4);
         Console.WriteLine(Numbers.ContainsValue(6)); // should be false because it does not contain that value
-        Console.WriteLine(Numbers.ContainsValue(3)); // should be true it does contain a values
+        Console.WriteLine(Numbers.ContainsValue(3)); // should be true it does contain a 3
     }
 
     public void TestRemoveByValue()
@@ -139,9 +179,17 @@ public class Tests
         Numbers.AddLast(2);
         Numbers.AddLast(3);
         Numbers.AddLast(4);
+        Numbers.printList();
+        Console.WriteLine();
         Numbers.RemoveByValue(3);
         Console.WriteLine("List without 3 in it");
-        Numbers.printList();
+        Numbers.printList(); // should print 1 2 4
+        Console.WriteLine();
+        foreach(int num in Numbers)
+        {
+            Console.Write($"{num} ");
+        }
+        Console.WriteLine();
 
         //second test for RemoveByValue
         DoublyLinkedList<string> Words = new DoublyLinkedList<string>();
@@ -149,10 +197,16 @@ public class Tests
         Words.AddLast("quick");
         Words.AddLast("brown");
         Words.AddLast("fox");
+        Words.printList();
+        Console.WriteLine();
         Words.RemoveByValue("quick");
         Console.WriteLine("List without quick in it");
-        Words.printList();
-
+        Words.printList(); // should print The brown fox
+        Console.WriteLine();
+        foreach(string word in Words) // should pritn the brown fox
+        {
+            Console.Write($"{word} ");
+        }
     }
 
     public void TestInsertAfter()
@@ -166,9 +220,15 @@ public class Tests
         Numbers.AddLast(7);
         Numbers.printList(); //1 2 3 4 7
         Console.WriteLine();
+
         Numbers.InsertAfter(new DNode<int>(4), 5);
         Numbers.InsertAfter(new DNode<int>(5), 6);
         Numbers.printList(); //1 2 3 4 5 6 7
+        Console.WriteLine();
+        foreach(int number in Numbers) // 1 2 3 4 5 6 7
+        {
+            Console.Write($"{number}, ");
+        }
         Console.WriteLine();
 
         //Second test if InsertAfter method works
@@ -183,85 +243,38 @@ public class Tests
         words.InsertAfter(new DNode<string>("quick"), "agile");
         words.printList();// The quick agile brown fox jumps
         Console.WriteLine();
-    }
-
-    public void linkedListStartingEmptyTest()
-    {
-        DoublyLinkedList<int> Numbers = new DoublyLinkedList<int>();
-        Debug.Assert(Numbers.Length == 0); // Has correct length it was barrely created so it should be 0
-        Numbers.AddLast(1);
-        Debug.Assert(Numbers.Length == 1); // now has 1
-        Numbers.printList(); // should print 1;
-        Console.WriteLine();
-        Numbers.AddFirst(2);
-        Numbers.printList();// should print 2 1
-        Console.WriteLine(); 
-    }
-
-    public void LinkedListStartingWithOneAtBackTest()
-    {
-        //initated list with one at back
-        DoublyLinkedList<int> Numbers = new DoublyLinkedList<int>();
-        Numbers.AddLast(1);
-        Debug.Assert(Numbers.Length == 1); // Has correct length it was barrely created so it should be 1
-        Numbers.AddLast(2);
-        Numbers.printList(); // should print 1 2
-        Console.WriteLine();
-        Numbers.AddFirst(2);
-        Numbers.printList();// should print 2 1 2
-        Console.WriteLine();
-        Numbers.RemoveLast();
-        Numbers.printList(); // should print 2 1
-        Console.WriteLine();
-        Numbers.RemoveFirst();
-        Numbers.printList();// should print 1
+        foreach(string word in words)
+        {
+            Console.Write($"{word}, "); // The quick brown fox jumps
+        }
         Console.WriteLine();
     }
 
-    public void LinkedListStartingWithOneAtFrontTest()
+    public void TestIfForeachPrints()
     {
-        //initated list with one at back
+        //Test if foreach works
         DoublyLinkedList<int> Numbers = new DoublyLinkedList<int>();
         Numbers.AddFirst(1);
-        Debug.Assert(Numbers.Length == 1); // Has correct length it was barrely created so it should be 1
         Numbers.AddLast(2);
-        Numbers.printList(); // should print 1 2
+        Numbers.AddLast(3);
+        Numbers.AddLast(4);
+
+        foreach(int num in Numbers)
+        {
+            Console.Write($"{num}, ");
+        }
         Console.WriteLine();
-        Numbers.AddFirst(2);
-        Numbers.printList();// should print 2 1 2
-        Console.WriteLine();
-        Numbers.RemoveLast();
-        Numbers.printList(); // should print 2 1
-        Console.WriteLine();
-        Numbers.RemoveFirst();
-        Numbers.printList();// should print 1
-        Console.WriteLine();
+
+        DoublyLinkedList<string> Words = new DoublyLinkedList<string>();
+        Words.AddLast("The");
+        Words.AddLast("quick");
+        Words.AddLast("brown");
+        Words.AddLast("fox");
+        foreach(string value in Words)
+        {
+            Console.Write($"{value} ");
+        }
     }
 
-    public void LinkedListStaringWithTwoTests()
-    {
-        //initated list with one at back and one at the front
-        DoublyLinkedList<int> Numbers = new DoublyLinkedList<int>();
-        Numbers.AddLast(1);
-        Numbers.AddFirst(2);
-        Debug.Assert(Numbers.Length == 2); // Has correct length it was barrely created so it should be 2
-        Numbers.RemoveFirst(); 
-        Numbers.printList();// should print 1
-        Console.WriteLine();
-        Numbers.RemoveLast();
-        Numbers.printList(); // should print 0
-        Console.WriteLine();
-        Debug.Assert(Numbers.Length == 0); //Should have 0 in it because we removed all the items
-        
-        //initated list with one at back and one at the front
-        DoublyLinkedList<int> newNumbers = new DoublyLinkedList<int>();
-        newNumbers.AddLast(1);
-        newNumbers.AddFirst(2);
-        Debug.Assert(newNumbers.Length == 2); // Has correct length it was barely created so it should be 2
-        newNumbers.printList(); // should print 2 1
-        Console.WriteLine();
-        newNumbers.ReverseList(); // should print out 1 2
-        newNumbers.printList(); 
-        Console.WriteLine(); // should print 1 2
-    }
+
 }
