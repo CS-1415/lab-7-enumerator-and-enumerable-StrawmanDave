@@ -10,3 +10,15 @@ C:\Users\HumbleIcarus\Documents\Programming 1410-1415\Programming-1410\lab-7-enu
 C:\Users\HumbleIcarus\Documents\Programming 1410-1415\Programming-1410\lab-7-enumerator-and-enumerable-StrawmanDave\Lab07\obj\Debug\net9.0\refint\Lab07.dll
 C:\Users\HumbleIcarus\Documents\Programming 1410-1415\Programming-1410\lab-7-enumerator-and-enumerable-StrawmanDave\Lab07\obj\Debug\net9.0\Lab07.pdb
 C:\Users\HumbleIcarus\Documents\Programming 1410-1415\Programming-1410\lab-7-enumerator-and-enumerable-StrawmanDave\Lab07\obj\Debug\net9.0\ref\Lab07.dll
+C:\Users\HumbleIcarus\Documents\Programming 1410-1415\lab-7-enumerator-and-enumerable-StrawmanDave\Lab07\bin\Debug\net9.0\Lab07.deps.json
+C:\Users\HumbleIcarus\Documents\Programming 1410-1415\lab-7-enumerator-and-enumerable-StrawmanDave\Lab07\bin\Debug\net9.0\Lab07.dll
+C:\Users\HumbleIcarus\Documents\Programming 1410-1415\lab-7-enumerator-and-enumerable-StrawmanDave\Lab07\bin\Debug\net9.0\Lab07.pdb
+C:\Users\HumbleIcarus\Documents\Programming 1410-1415\lab-7-enumerator-and-enumerable-StrawmanDave\Lab07\obj\Debug\net9.0\Lab07.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HumbleIcarus\Documents\Programming 1410-1415\lab-7-enumerator-and-enumerable-StrawmanDave\Lab07\obj\Debug\net9.0\Lab07.AssemblyInfoInputs.cache
+C:\Users\HumbleIcarus\Documents\Programming 1410-1415\lab-7-enumerator-and-enumerable-StrawmanDave\Lab07\obj\Debug\net9.0\Lab07.AssemblyInfo.cs
+C:\Users\HumbleIcarus\Documents\Programming 1410-1415\lab-7-enumerator-and-enumerable-StrawmanDave\Lab07\obj\Debug\net9.0\Lab07.csproj.CoreCompileInputs.cache
+C:\Users\HumbleIcarus\Documents\Programming 1410-1415\lab-7-enumerator-and-enumerable-StrawmanDave\Lab07\obj\Debug\net9.0\Lab07.sourcelink.json
+C:\Users\HumbleIcarus\Documents\Programming 1410-1415\lab-7-enumerator-and-enumerable-StrawmanDave\Lab07\obj\Debug\net9.0\Lab07.dll
+C:\Users\HumbleIcarus\Documents\Programming 1410-1415\lab-7-enumerator-and-enumerable-StrawmanDave\Lab07\obj\Debug\net9.0\refint\Lab07.dll
+C:\Users\HumbleIcarus\Documents\Programming 1410-1415\lab-7-enumerator-and-enumerable-StrawmanDave\Lab07\obj\Debug\net9.0\Lab07.pdb
+C:\Users\HumbleIcarus\Documents\Programming 1410-1415\lab-7-enumerator-and-enumerable-StrawmanDave\Lab07\obj\Debug\net9.0\ref\Lab07.dll

@@ -29,7 +29,7 @@ public class Tests
         }
         Console.WriteLine();
     }
-
+    [Test]
     public void TestRemoveLast()
     {
         //test if removelast works
@@ -48,7 +48,7 @@ public class Tests
         }
         Console.WriteLine();
     }
-
+    [Test]
     public void TestReverseList()
     {
         //test if reversList works
@@ -84,7 +84,7 @@ public class Tests
             Console.Write($"{word} ");
         }
     }
-
+    [Test]
     public void TestAddFirst()
     {
         //test if addFirst works correctly
@@ -100,7 +100,7 @@ public class Tests
             Console.Write($"{num} ");
         }
     }
-
+    [Test]
     public void TestRemovefirst()
     {
         //test if removeFirst wors correctly
@@ -118,7 +118,7 @@ public class Tests
             Console.Write($"{num} ");
         }
     }
-
+    [Test]
     public void TestReverse()
     {
         //test if Reverse method really returns the list reversed.
@@ -142,7 +142,7 @@ public class Tests
             Console.Write($"{num} ");
         }
     }
-
+    [Test]
     public void TestDNodeEquals()
     {
         //test if DNodes equals works
@@ -158,7 +158,7 @@ public class Tests
         DNode<string> word2 = new DNode<string>("Two");
         Console.WriteLine(Node3.Equals(word2)); // should be false both strings but not the same string
     }
-
+    [Test]
     public void TestContainsValue()
     {
         //test if remove by value works
@@ -170,7 +170,7 @@ public class Tests
         Console.WriteLine(Numbers.ContainsValue(6)); // should be false because it does not contain that value
         Console.WriteLine(Numbers.ContainsValue(3)); // should be true it does contain a 3
     }
-
+    [Test]
     public void TestRemoveByValue()
     {
         //test if remove by value works
@@ -208,7 +208,7 @@ public class Tests
             Console.Write($"{word} ");
         }
     }
-
+    [Test]
     public void TestInsertAfter()
     {
         //test if InsertAfter method works
@@ -249,7 +249,7 @@ public class Tests
         }
         Console.WriteLine();
     }
-
+    [Test]
     public void TestIfForeachPrints()
     {
         //Test if foreach works
@@ -275,6 +275,4 @@ public class Tests
             Console.Write($"{value} ");
         }
     }
-
-
 }

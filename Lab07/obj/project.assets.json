@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HumbleIcarus\\Documents\\Programming 1410-1415\\Programming-1410\\lab-7-enumerator-and-enumerable-StrawmanDave\\Lab07\\Lab07.csproj",
+      "projectUniqueName": "C:\\Users\\HumbleIcarus\\Documents\\Programming 1410-1415\\lab-7-enumerator-and-enumerable-StrawmanDave\\Lab07\\Lab07.csproj",
       "projectName": "Lab07",
-      "projectPath": "C:\\Users\\HumbleIcarus\\Documents\\Programming 1410-1415\\Programming-1410\\lab-7-enumerator-and-enumerable-StrawmanDave\\Lab07\\Lab07.csproj",
+      "projectPath": "C:\\Users\\HumbleIcarus\\Documents\\Programming 1410-1415\\lab-7-enumerator-and-enumerable-StrawmanDave\\Lab07\\Lab07.csproj",
       "packagesPath": "C:\\Users\\HumbleIcarus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HumbleIcarus\\Documents\\Programming 1410-1415\\Programming-1410\\lab-7-enumerator-and-enumerable-StrawmanDave\\Lab07\\obj\\",
+      "outputPath": "C:\\Users\\HumbleIcarus\\Documents\\Programming 1410-1415\\lab-7-enumerator-and-enumerable-StrawmanDave\\Lab07\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HumbleIcarus\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.104/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.105/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

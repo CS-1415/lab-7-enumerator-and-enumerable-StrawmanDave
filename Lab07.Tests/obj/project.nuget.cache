@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "H/WSG9/4iTc=",
+  "dgSpecHash": "nWEaoqorWPs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\HumbleIcarus\\Documents\\Programming 1410-1415\\Programming-1410\\lab-7-enumerator-and-enumerable-StrawmanDave\\Lab07.Tests\\Lab07.Tests.csproj",
+  "projectFilePath": "C:\\Users\\HumbleIcarus\\Documents\\Programming 1410-1415\\lab-7-enumerator-and-enumerable-StrawmanDave\\Lab07.Tests\\Lab07.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HumbleIcarus\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
     "C:\\Users\\HumbleIcarus\\.nuget\\packages\\microsoft.codecoverage\\17.12.0\\microsoft.codecoverage.17.12.0.nupkg.sha512",

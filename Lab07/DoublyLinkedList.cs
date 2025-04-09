@@ -2,6 +2,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 public class DoublyLinkedList<T> : IDoubleEndedCollection<T>, IEnumerable<T>
 {
@@ -57,7 +58,7 @@ public class DoublyLinkedList<T> : IDoubleEndedCollection<T>, IEnumerable<T>
         DNode<T> newNode = new DNode<T>(value);
         newNode.Next = _head;
 
-        if (_head == null)
+        if(_head == null)
         {
             _tail = newNode;
         }else
@@ -84,20 +85,19 @@ public class DoublyLinkedList<T> : IDoubleEndedCollection<T>, IEnumerable<T>
 
     public void RemoveLast() 
     {
-        if(_tail == null){}; //do nothing because the list is empty 
-        if(_tail.Previous == null) // if there is one element in the list set both the head and the tail to null
+        if(_tail == null){ //  if the tail is null do nothing
+            Console.WriteLine("No elements in the list or tail is null when it is not supposed to be");
+        }else if(_tail.Previous == null) // if there is one element in the list set both the head and the tail to null
         {
             _head = null;
             _tail = null;
             Length --;
-        }
-
-        if(_tail.Previous != null) // if there is one or more element in the list
+        }else if(_tail.Previous != null)
         {
             _tail = _tail.Previous;
             _tail.Next = null;
-            Length --;
         }
+        Length --;
     }
 
     public void InsertAfter(DNode<T> DN, T value)
@@ -140,9 +140,11 @@ public class DoublyLinkedList<T> : IDoubleEndedCollection<T>, IEnumerable<T>
         //should remove the first node found with that value.
         //should set missing pointers to what they need to be.
         //new temp list to hold all the values that are not the one given
+        DoublyLinkedList<T> temp = new DoublyLinkedList<T>();
         if(ContainsValue(value) == true)
         {
             DNode<T> Curr = _head;
+            Curr.Value = _head.Value;
             DNode<T> GivenNode = new DNode<T>(value);
 
             //iterarte through the current list and add each node to the temp list unless it is the GivenNode
@@ -151,24 +153,31 @@ public class DoublyLinkedList<T> : IDoubleEndedCollection<T>, IEnumerable<T>
                 RemoveFirst();
             }else if(GivenNode.Equals(_tail))
             {
+                Console.WriteLine(_tail.Value);
                 RemoveLast();
             }else
             {
+                Console.WriteLine(Curr.Value);
+                Console.WriteLine(Curr.Next.Value);
+                Console.WriteLine(_tail.Previous.Value);
+                Console.WriteLine(_tail.Value);
                 while(Curr != null)
                 {
-                    if(Curr.Equals(GivenNode))
+                    if(Curr.GetHashCode() == GivenNode.GetHashCode())
                     {
-                        //skip that node
-                        RemoveLast();
+                        //skip that node 
                         Curr = Curr.Next;
+                        RemoveFirst(); 
                     }
-                    AddFirst(Curr.Value);
-                    RemoveLast();
+                    
+                    temp.AddLast(Curr.Value); // add each element except the one with the given value
                     Curr = Curr.Next;
+                    // Console.WriteLine(_head.Value);
+                    RemoveFirst(); // Remove each item in the current list
+                    DNode<T> start = temp._head; // add the tempary nodes to the current nodes
+                    AddFirst(start.Value);
                 }
-                ReverseList();
             }
-            
         }else
         {
             Console.WriteLine("That value was not found in the list");
